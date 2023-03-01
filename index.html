@@ -22,7 +22,7 @@
 				 <a class="navbar-brand" href="#!">ShopNow</a>
 				 <div class="d-flex flex-row order-lg-last align-items-center">
 				 
-					 <button type="button" class="navbar-toggler order-last collapsed" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					 <button type="button" onclick="printCart()" class="navbar-toggler order-last collapsed" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar">
 						 <span class="navbar-toggler-icon"></span>
 					 </button>
 					 <ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
@@ -208,7 +208,6 @@
 							</div>
 						</div>
 					</div>
-					<div><button type="button" onclick="generateCart()">Generate cart</button><button type="button" onclick="applyPromotionsCart()">Apply promotions</button></div>
 				</div>
 			</div>
 		</section>
@@ -238,27 +237,15 @@
 					  </thead>
 					  <tbody id="cart_list">
 						<tr>
-						  <th scope="row">Cooking oil</th>
-						  <td>$10.5</td>
-						  <td>2</td>
-						  <td>$21</td>
-						</tr>
-						<tr>
-						  <th scope="row">Pasta</th>
-						  <td>$6.25</td>
-						  <td>1</td>
-						  <td>$6.25</td>
-						</tr>
-						<tr>
-						  <th scope="row">Lawn dress</th>
-						  <td>$15</td>
-						  <td>3</td>
-						  <td>$45</td>
+						  <th scope="row" id="prodName"></th>
+						  <td id="prodPrice"></td>
+						  <td id="prodQuantity"></td>
+						  <td id="prodDiscount"></td>
 						</tr>
 					  </tbody>
 				  </table>
 				  <div class="text-center fs-3">
-					Total: $<span id="total_price">100</span>
+					Total: $<span id="total_price"></span>
 				  </div>
 				  <div class="text-center"> 
 					<a href="checkout.html" class="btn btn-primary m-3">Checkout</a>

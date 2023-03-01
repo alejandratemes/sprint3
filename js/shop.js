@@ -81,8 +81,8 @@ function cleanCart() {
 
 // Exercise 3
 function calculateTotal() {
-    for (let i = 0; i < cartList.length; i++) {
-        total += cartList[i].price
+    for (let i = 0; i < cart.length; i++) {
+        total += cart[i].total
     }
     console.log(total)
 }
@@ -105,24 +105,41 @@ function generateCart() {
 function applyPromotionsCart() {
     let newPrice = 0
     for (let i = 0; i < cart.length; i++) {
-        if (cart[i].name === 'cooking oil') {
-            if (cart[i].quantity >= 3) {
-                newPrice = 10
-                cart[i].subtotalWithDiscount = newPrice*cart[i].quantity
-            }
-        } else if (cart[i].name === 'Instant cupcake mixture') {
-            if (cart[i].quantity >= 10) {
-                newPrice = (cart[i].price*2)/3
-                cart[i].subtotalWithDiscount = newPrice*cart[i].quantity
-            }
+        if (cart[i].name === 'cooking oil' && cart[i].quantity >= 3) {
+            newPrice = 10
+            cart[i].subtotalWithDiscount = newPrice*cart[i].quantity
+            cart[i].total = cart[i].subtotalWithDiscount
+        } else if (cart[i].name === 'Instant cupcake mixture' && cart[i].quantity >= 10) {
+            newPrice = (cart[i].price*2)/3
+            cart[i].subtotalWithDiscount = newPrice*cart[i].quantity
+            cart[i].total = cart[i].subtotalWithDiscount
+        } else {
+            cart[i].total = cart[i].price*cart[i].quantity
         }
         console.log(cart)
     }
 }
 
+
 // Exercise 6
 function printCart() {
-    // Fill the shopping cart modal manipulating the shopping cart dom
+
+    generateCart()
+    applyPromotionsCart()
+    calculateTotal()
+
+    document.getElementById('total_price').innerHTML = total
+    
+    cart.forEach(function (element) {
+        let listInfo = `<tr>
+                        <th scope ="row">${element.name}</th>`
+
+        listInfo += `<td>$${element.price}</td>
+                     <td>${element.quantity}
+                     <td>$${element.total}</td>`
+        listInfo += `<tr>`
+        document.getElementById('cart_list').innerHTML += listInfo
+    })
 }
 
 
