@@ -124,7 +124,7 @@ function applyPromotionsCart() {
 // Exercise 6
 function printCart() {
 
-    generateCart()
+    addToCart()
     applyPromotionsCart()
     calculateTotal()
     
@@ -144,14 +144,26 @@ function printCart() {
 
 // ** Nivell II **
 
-// Exercise 7
+// Exercise 8
 function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+    for (let i= 0; i < products.length; i++) {
+        if(products[i].id === id) {
+            let exists = cart.find(cart => cart === products[i])
+            if (exists){
+                cart.quantity = products[i].quantity++
+            } else {
+            cart.push(products[i])
+            products[i].quantity = 1
+            }
+        }
+    }
+    console.log(cart)
 }
 
-// Exercise 8
+// Exercise 9
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
