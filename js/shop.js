@@ -127,8 +127,6 @@ function printCart() {
     generateCart()
     applyPromotionsCart()
     calculateTotal()
-
-    document.getElementById('total_price').innerHTML = total
     
     cart.forEach(function (element) {
         let listInfo = `<tr>
@@ -140,6 +138,7 @@ function printCart() {
         listInfo += `<tr>`
         document.getElementById('cart_list').innerHTML += listInfo
     })
+    document.getElementById('total_price').innerHTML = total
 }
 
 
