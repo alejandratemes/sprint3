@@ -146,9 +146,6 @@ function printCart() {
 
 // Exercise 8
 function addToCart(id) {
-    // Refactor previous code in order to simplify it 
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cart array or update its quantity in case it has been added previously.
     for (let i= 0; i < products.length; i++) {
         if(products[i].id === id) {
             let exists = cart.find(cart => cart === products[i])
