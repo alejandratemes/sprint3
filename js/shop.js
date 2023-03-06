@@ -75,8 +75,11 @@ function buy(id) {
 
 // Exercise 2
 function cleanCart() {
+    cart.splice(0,cart.length)
     cartList.splice(0,cartList.length)
-    console.log(cartList)
+    total = 0
+    document.getElementById('cart_list').innerHTML = ""
+    document.getElementById('total_price').innerHTML = 0
 }
 
 // Exercise 3
@@ -124,7 +127,7 @@ function applyPromotionsCart() {
 // Exercise 6
 function printCart() {
 
-    addToCart()
+    generateCart()
     applyPromotionsCart()
     calculateTotal()
     
