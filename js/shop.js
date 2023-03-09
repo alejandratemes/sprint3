@@ -92,12 +92,12 @@ function calculateTotal() {
 
 // Exercise 4
 function generateCart() {
-    cartList.forEach(function (element) {element.quantity = 1;})
     for (let i=0; i < cartList.length; i++) {
         let exists = cart.find(cart => cart === cartList[i])
         if (exists) {
             cart.quantity = cartList[i].quantity++
         } else {
+            cartList[i].quantity = 1
             cart.push(cartList[i])
         }
     }
