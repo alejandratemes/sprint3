@@ -92,7 +92,7 @@ function calculateTotal() {
 
 // Exercise 4
 function generateCart() {
-    for (let i=0; i < cartList.length; i++) {
+   for (let i=0; i < cartList.length; i++) {
         let exists = cart.find(cart => cart === cartList[i])
         if (exists) {
             cart.quantity = cartList[i].quantity++
@@ -102,6 +102,7 @@ function generateCart() {
         }
     }
     console.log(cart)
+
 }
 
 // Exercise 5
@@ -126,11 +127,9 @@ function applyPromotionsCart() {
 
 // Exercise 6
 function printCart() {
-
-    generateCart()
+    
     applyPromotionsCart()
     calculateTotal()
-    
     cart.forEach(function (element) {
         let listInfo = `<tr>
                         <th scope ="row">${element.name}</th>`
@@ -142,6 +141,12 @@ function printCart() {
         document.getElementById('cart_list').innerHTML += listInfo
     })
     document.getElementById('total_price').innerHTML = total
+}
+
+function cleanBoard() {
+    document.getElementById('cart_list').innerHTML = ""
+    document.getElementById('total_price').innerHTML = ""
+    total = 0
 }
 
 
