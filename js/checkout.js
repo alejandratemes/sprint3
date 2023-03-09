@@ -59,6 +59,26 @@ function validate() {
 	if(error>0){
 		alert("Error");
 	}else{
+		errorName.style.color = "green"
+		fName.style.borderColor = "green"
+		errorEmail.style.color = "green"
+		fEmail.style.borderColor = "green"
+		errorAddress.style.color = "green"
+		fAddress.style.borderColor = "green"
+		errorLastN.style.color = "green"
+		fLastN.style.borderColor = "green"
+		errorPassword.style.color = "green"
+		fPassword.style.borderColor = "green"
+		errorPhone.style.color = "green"
+		fPhone.style.borderColor = "green"
+
+		document.getElementById("errorName").innerHTML = "Correct"
+		document.getElementById("errorEmail").innerHTML = "Correct"
+		document.getElementById("errorLastN").innerHTML = "Correct"
+		document.getElementById("errorAddress").innerHTML= "Correct"
+		document.getElementById("errorPassword").innerHTML = "Correct"
+		document.getElementById("errorPhone").innerHTML = "Correct"
+
 		alert("OK");
 	}
 
